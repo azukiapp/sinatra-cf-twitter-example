@@ -11,7 +11,7 @@ configure do
     set :public_folder, Proc.new { File.join(__dir__, 'static') }
 
     if (ENV['VCAP_SERVICES']).nil?
-      REDIS_CLIENT = Redis.new(:host => 'localhost', :port => 6379)
+      REDIS_CLIENT = Redis.new(:url => ENV['DATABASE_URL'])
     else
       services = JSON.parse(ENV['VCAP_SERVICES'])
       redis_key = services.keys.select { |svc| svc =~ /redis/i }.first
