@@ -37,13 +37,25 @@ Then run:
     git clone git@github.com:<your_name>/sinatra-cf-twitter.git whofollows
     cd whofollows
 
-You will need a local Redis server running. If you need to connect with a password, edit the follow line to add a `:password` value.
+You will need to create a [Twitter app](http://apps.twitter.com) and place the API keys in the environment variables `TW_CONSUMER_KEY`, `TW_CONSUMER_SECRET`, `TW_ACCESS_TOKEN` and `TW_ACCESS_TOKEN_SECRET`.
+
+If you have [azk](http://www.azk.io/) installed, run:
+
+```
+$ cp Azkfile.js.sample Azkfile.js
+```
+
+Open your Azkfile.js and change the environment variables inside. After that, just run:
+
+```
+$ azk start
+```
+
+If you're not using azk, you will need a local Redis server running. If you need to connect with a password, edit the follow line to add a `:password` value.
 
 ```ruby
 REDIS_CLIENT = Redis.new(:host => 'localhost', :port => 6379)
 ```
-
-You will need to create a [Twitter app](http://apps.twitter.com) and place the API keys in the environment variables `TW_CONSUMER_KEY`, `TW_CONSUMER_SECRET`, `TW_ACCESS_TOKEN` and `TW_ACCESS_TOKEN_SECRET`.
 
 Run `rackup` to start the server, and navigate to `http://localhost:9292` to access the application.
 
