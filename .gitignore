@@ -3,3 +3,7 @@ vendor
 Gemfile.lock
 manifest.yml
 my-config.yml
+.azk
+.bundle
+.ruby-version
+Azkfile.js
